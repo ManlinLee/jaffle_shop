@@ -11,18 +11,19 @@
       "userDefinedConfig" : {
         "vars" : { }
       }
-    }
+    },
+    "version" : 3
   },
   "processes" : {
-    "source##VxMIf8UY" : {
-      "id" : "source##VxMIf8UY",
+    "source##AO41wEHD" : {
+      "id" : "source##AO41wEHD",
       "component" : "Seed",
       "metadata" : {
         "label" : "source",
-        "x" : 120,
-        "y" : 120,
+        "x" : 20,
+        "y" : 20,
         "phase" : 0,
-        "comment" : "-\n    Normally we would select from the table here, but we are using seeds to load\n    our data in this project\n    "
+        "comment" : "-\n  Normally we would select from the table here, but we are using seeds to load\n  our data in this project\n  "
       },
       "properties" : {
         "table" : {
@@ -33,18 +34,18 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "H3CHWbml",
+          "id" : "pgIc9aLp",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
               "name" : "id",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
               "name" : "order_id",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
               "name" : "payment_method",
@@ -54,27 +55,28 @@
             }, {
               "name" : "amount",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             } ]
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "renamed##j3c1ViVR" : {
-      "id" : "renamed##j3c1ViVR",
+    "renamed##QZAFSMxh" : {
+      "id" : "renamed##QZAFSMxh",
       "component" : "Reformat",
       "metadata" : {
         "label" : "renamed",
-        "x" : 320,
-        "y" : 120,
+        "x" : 220,
+        "y" : 20,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
       "properties" : {
-        "columnsSelector" : [ "KPqq9NOM##id", "KPqq9NOM##order_id", "KPqq9NOM##payment_method" ],
+        "columnsSelector" : [ "RXsx664g##id", "RXsx664g##order_id", "RXsx664g##payment_method", "RXsx664g##amount" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "id"
@@ -97,18 +99,18 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "KPqq9NOM",
+          "id" : "RXsx664g",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
               "name" : "id",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
               "name" : "order_id",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
               "name" : "payment_method",
@@ -118,50 +120,51 @@
             }, {
               "name" : "amount",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             } ]
           },
           "slug" : "source"
         } ],
         "outputs" : [ {
-          "id" : "JJn4ajlb",
+          "id" : "HBrx9H2P",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "payment_id",
+              "name" : "PAYMENT_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "order_id",
+              "name" : "ORDER_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "payment_method",
+              "name" : "PAYMENT_METHOD",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "amount",
+              "name" : "AMOUNT",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             } ]
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "stg_payments##PMerBwCO" : {
-      "id" : "stg_payments##PMerBwCO",
+    "stg_payments##d4xZv4LD" : {
+      "id" : "stg_payments##d4xZv4LD",
       "component" : "TargetModel",
       "metadata" : {
         "label" : "stg_payments",
-        "x" : 520,
-        "y" : 120,
+        "x" : 420,
+        "y" : 20,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -177,77 +180,78 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "QFoHKIHO",
+          "id" : "r254Qckr",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "payment_id",
+              "name" : "PAYMENT_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "order_id",
+              "name" : "ORDER_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "payment_method",
+              "name" : "PAYMENT_METHOD",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "amount",
+              "name" : "AMOUNT",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             } ]
           },
           "slug" : "renamed"
         } ],
         "outputs" : [ {
-          "id" : "chtHMDum",
+          "id" : "PP4WBMXH",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "payment_id",
+              "name" : "PAYMENT_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "order_id",
+              "name" : "ORDER_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "payment_method",
+              "name" : "PAYMENT_METHOD",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "amount",
+              "name" : "AMOUNT",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             } ]
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     }
   },
   "connections" : [ {
-    "id" : "pyg1teRL",
-    "source" : "source##VxMIf8UY",
-    "sourcePort" : "H3CHWbml",
-    "target" : "renamed##j3c1ViVR",
-    "targetPort" : "KPqq9NOM"
+    "id" : "GQc3tsdd",
+    "source" : "source##AO41wEHD",
+    "sourcePort" : "pgIc9aLp",
+    "target" : "renamed##QZAFSMxh",
+    "targetPort" : "RXsx664g"
   }, {
-    "id" : "Wt6uHrWy",
-    "source" : "renamed##j3c1ViVR",
-    "sourcePort" : "JJn4ajlb",
-    "target" : "stg_payments##PMerBwCO",
-    "targetPort" : "QFoHKIHO"
+    "id" : "VUmsBEZz",
+    "source" : "renamed##QZAFSMxh",
+    "sourcePort" : "HBrx9H2P",
+    "target" : "stg_payments##d4xZv4LD",
+    "targetPort" : "r254Qckr"
   } ],
   "component" : "Model"
 }

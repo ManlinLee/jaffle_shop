@@ -26,18 +26,18 @@ sqlModels:
   .prophecy/metadata/sqlmodels/stg_orders:
     name: stg_orders
     schema:
-      providerType: Databricks
+      providerType: Snowflake
       fields:
-      - name: order_id
+      - name: ORDER_ID
         dataType:
-          type: Integer
-      - name: customer_id
+          type: Number
+      - name: CUSTOMER_ID
         dataType:
-          type: Integer
-      - name: order_date
+          type: Number
+      - name: ORDER_DATE
         dataType:
           type: Date
-      - name: status
+      - name: STATUS
         dataType:
           type: String
     description: null
@@ -53,20 +53,20 @@ sqlModels:
   .prophecy/metadata/sqlmodels/CustomerOrders:
     name: CustomerOrders
     schema:
-      providerType: Databricks
+      providerType: Snowflake
       fields:
-      - name: customer_id
+      - name: CUSTOMER_ID
         dataType:
-          type: Integer
-      - name: first_name
-        dataType:
-          type: String
-      - name: last_name
+          type: Number
+      - name: FIRST_NAME
         dataType:
           type: String
-      - name: revenue
+      - name: LAST_NAME
         dataType:
-          type: Double
+          type: String
+      - name: REVENUE
+        dataType:
+          type: Number
     description: null
     author: nathan@prophecy.io
     files:
@@ -79,35 +79,35 @@ sqlModels:
   .prophecy/metadata/sqlmodels/orders:
     name: orders
     schema:
-      providerType: Databricks
+      providerType: Snowflake
       fields:
-      - name: order_id
+      - name: ORDER_ID
         dataType:
-          type: Integer
-      - name: customer_id
+          type: Number
+      - name: CUSTOMER_ID
         dataType:
-          type: Integer
-      - name: order_date
+          type: Number
+      - name: ORDER_DATE
         dataType:
           type: Date
-      - name: status
+      - name: STATUS
         dataType:
           type: String
-      - name: credit_card_amount
+      - name: CREDIT_CARD_AMOUNT
         dataType:
-          type: Double
-      - name: coupon_amount
+          type: Number
+      - name: COUPON_AMOUNT
         dataType:
-          type: Double
-      - name: bank_transfer_amount
+          type: Number
+      - name: BANK_TRANSFER_AMOUNT
         dataType:
-          type: Double
-      - name: gift_card_amount
+          type: Number
+      - name: GIFT_CARD_AMOUNT
         dataType:
-          type: Double
-      - name: amount
+          type: Number
+      - name: AMOUNT
         dataType:
-          type: Double
+          type: Number
     description: This table has basic information about orders, as well as some derived
       facts based on payments
     author: maciej@prophecy.io
@@ -119,32 +119,100 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-12 15:35:01'
+  .prophecy/metadata/sqlmodels/Filter_Null:
+    name: Filter_Null
+    schema:
+      providerType: Snowflake
+      fields:
+      - name: ID
+        dataType:
+          type: Number
+      - name: AGE
+        dataType:
+          type: Number
+      - name: CUSTOMER_ID
+        dataType:
+          type: Number
+      - name: FIRST_NAME
+        dataType:
+          type: String
+      - name: LAST_NAME
+        dataType:
+          type: String
+      - name: FIRST_ORDER
+        dataType:
+          type: Date
+      - name: MOST_RECENT_ORDER
+        dataType:
+          type: Date
+      - name: TOTAL_ORDERS
+        dataType:
+          type: Number
+      - name: CUSTOMER_LIFETIME_VALUE
+        dataType:
+          type: Number
+    description: null
+    author: manlin.li@blackrock.com
+    files:
+    - models/Filter_Null.sql
+    - .prophecy/ide/models/Filter_Null.json
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2024-01-05 16:04:11'
+  .prophecy/metadata/sqlmodels/stg_payments:
+    name: stg_payments
+    schema:
+      providerType: Snowflake
+      fields:
+      - name: PAYMENT_ID
+        dataType:
+          type: Number
+      - name: ORDER_ID
+        dataType:
+          type: Number
+      - name: PAYMENT_METHOD
+        dataType:
+          type: String
+      - name: AMOUNT
+        dataType:
+          type: Number
+    description: null
+    author: maciej@prophecy.io
+    files:
+    - models/staging/stg_payments.sql
+    - .prophecy/ide/models/stg_payments.json
+    - models/staging/schema.yml
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2023-04-12 15:35:01'
   .prophecy/metadata/sqlmodels/customers:
     name: customers
     schema:
-      providerType: Databricks
+      providerType: Snowflake
       fields:
-      - name: customer_id
+      - name: CUSTOMER_ID
         dataType:
-          type: Integer
-      - name: first_name
-        dataType:
-          type: String
-      - name: last_name
+          type: Number
+      - name: FIRST_NAME
         dataType:
           type: String
-      - name: first_order
+      - name: LAST_NAME
+        dataType:
+          type: String
+      - name: FIRST_ORDER
         dataType:
           type: Date
-      - name: most_recent_order
+      - name: MOST_RECENT_ORDER
         dataType:
           type: Date
-      - name: total_orders
+      - name: TOTAL_ORDERS
         dataType:
-          type: Bigint
-      - name: customer_lifetime_value
+          type: Number
+      - name: CUSTOMER_LIFETIME_VALUE
         dataType:
-          type: Double
+          type: Number
     description: This table has basic information about a customer, as well as some
       derived facts based on a customer's orders
     author: maciej@prophecy.io
@@ -156,45 +224,73 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-12 15:35:01'
-  .prophecy/metadata/sqlmodels/stg_payments:
-    name: stg_payments
+  .prophecy/metadata/sqlmodels/Transformation_DeriveCol:
+    name: Transformation_DeriveCol
     schema:
-      providerType: Databricks
+      providerType: Snowflake
       fields:
-      - name: payment_id
-        dataType:
-          type: Integer
-      - name: order_id
-        dataType:
-          type: Integer
-      - name: payment_method
+      - name: RIC
         dataType:
           type: String
-      - name: amount
+      - name: ID
         dataType:
-          type: Double
+          type: Number
+      - name: DATE
+        dataType:
+          type: Date
+      - name: TIME
+        dataType:
+          type: Time
+      - name: TENOR
+        dataType:
+          type: String
     description: null
-    author: maciej@prophecy.io
+    author: manlin.li@blackrock.com
     files:
-    - models/staging/stg_payments.sql
-    - .prophecy/ide/models/stg_payments.json
-    - models/staging/schema.yml
+    - models/Transformation_DeriveCol.sql
+    - .prophecy/ide/models/Transformation_DeriveCol.json
     sqlDependencies:
       models: []
       datasets: []
-    createdAt: '2023-04-12 15:35:01'
+    createdAt: '2024-01-08 20:29:20'
+  .prophecy/metadata/sqlmodels/Check_Outliers:
+    name: Check_Outliers
+    schema:
+      providerType: Snowflake
+      fields:
+      - name: PAYMENT_ID
+        dataType:
+          type: Number
+      - name: ORDER_ID
+        dataType:
+          type: Number
+      - name: PAYMENT_METHOD
+        dataType:
+          type: String
+      - name: AMOUNT
+        dataType:
+          type: Number
+    description: null
+    author: manlin.li@blackrock.com
+    files:
+    - models/Check_Outliers.sql
+    - .prophecy/ide/models/Check_Outliers.json
+    sqlDependencies:
+      models: []
+      datasets: []
+    createdAt: '2024-01-11 02:00:54'
   .prophecy/metadata/sqlmodels/stg_customers:
     name: stg_customers
     schema:
-      providerType: Databricks
+      providerType: Snowflake
       fields:
-      - name: customer_id
+      - name: CUSTOMER_ID
         dataType:
-          type: Integer
-      - name: first_name
+          type: Number
+      - name: FIRST_NAME
         dataType:
           type: String
-      - name: last_name
+      - name: LAST_NAME
         dataType:
           type: String
     description: null
@@ -207,27 +303,16 @@ sqlModels:
       models: []
       datasets: []
     createdAt: '2023-04-12 15:35:01'
-sqlMacros: {}
-sqlSeeds:
-  .prophecy/metadata/sqlseeds/raw_customers:
-    name: raw_customers
-    schema:
-      providerType: Snowflake
-      fields:
-      - name: id
-        dataType:
-          type: Number
-      - name: first_name
-        dataType:
-          type: String
-      - name: last_name
-        dataType:
-          type: String
+sqlMacros:
+  .prophecy/metadata/sqlmacros/Test_macro222:
+    name: Test_macro222
+    macroType: expression
     description: null
-    author: maciej@prophecy.io
+    author: manlin.li@blackrock.com
     files:
-    - seeds/raw_customers.csv
-    createdAt: '2023-04-12 15:35:01'
+    - macros/Test_Macro.sql
+    createdAt: '2024-01-12 16:21:05'
+sqlSeeds:
   .prophecy/metadata/sqlseeds/raw_orders:
     name: raw_orders
     schema:
@@ -272,7 +357,320 @@ sqlSeeds:
     files:
     - seeds/raw_payments.csv
     createdAt: '2023-04-12 15:35:01'
-sqlSources: {}
+  .prophecy/metadata/sqlseeds/test_raw_ICAP_USD_ZC_Inflation_20240108_16-15:
+    name: test_raw_ICAP_USD_ZC_Inflation_20240108_16-15
+    schema:
+      providerType: Snowflake
+      fields:
+      - name: RIC
+        dataType:
+          type: String
+      - name: DATE
+        dataType:
+          type: String
+      - name: TIME
+        dataType:
+          type: String
+      - name: TENOR
+        dataType:
+          type: String
+      - name: VALUE
+        dataType:
+          type: Float
+    description: null
+    author: manlin.li@blackrock.com
+    files:
+    - seeds/test_raw_ICAP_USD_ZC_Inflation_20240108_16-15.csv
+    createdAt: '2024-01-09 02:53:41'
+  .prophecy/metadata/sqlseeds/test_raw_ICAP_USD_Basis_Swaps_20240108:
+    name: test_raw_ICAP_USD_Basis_Swaps_20240108
+    schema:
+      providerType: Snowflake
+      fields:
+      - name: RIC
+        dataType:
+          type: String
+      - name: DATE
+        dataType:
+          type: String
+      - name: TIME
+        dataType:
+          type: String
+      - name: TENOR
+        dataType:
+          type: String
+      - name: VALUE
+        dataType:
+          type: Float
+    description: null
+    author: manlin.li@blackrock.com
+    files:
+    - seeds/test_raw_ICAP_USD_Basis_Swaps_20240108.csv
+    createdAt: '2024-01-09 02:52:36'
+  .prophecy/metadata/sqlseeds/raw_customers:
+    name: raw_customers
+    schema:
+      providerType: Snowflake
+      fields:
+      - name: id
+        dataType:
+          type: Number
+      - name: first_name
+        dataType:
+          type: String
+      - name: last_name
+        dataType:
+          type: String
+    description: null
+    author: maciej@prophecy.io
+    files:
+    - seeds/raw_customers.csv
+    createdAt: '2023-04-12 15:35:01'
+sqlSources:
+  .prophecy/metadata/sqlsources/BLACKROCK_INFORMATION_SCHEMA:
+    name: BLACKROCK.INFORMATION_SCHEMA
+    description: null
+    author: manlin.li@blackrock.com
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2023-12-18 22:11:39'
+    tables:
+    - name: SCHEMATA
+      schema:
+        providerType: snowflake
+        fields:
+        - name: CATALOG_NAME
+          dataType:
+            type: String
+        - name: SCHEMA_NAME
+          dataType:
+            type: String
+        - name: SCHEMA_OWNER
+          dataType:
+            type: String
+        - name: IS_TRANSIENT
+          dataType:
+            type: String
+        - name: IS_MANAGED_ACCESS
+          dataType:
+            type: String
+        - name: RETENTION_TIME
+          dataType:
+            type: Number
+        - name: DEFAULT_CHARACTER_SET_CATALOG
+          dataType:
+            type: String
+        - name: DEFAULT_CHARACTER_SET_SCHEMA
+          dataType:
+            type: String
+        - name: DEFAULT_CHARACTER_SET_NAME
+          dataType:
+            type: String
+        - name: SQL_PATH
+          dataType:
+            type: String
+        - name: CREATED
+          dataType:
+            type: Timestamp
+        - name: LAST_ALTERED
+          dataType:
+            type: Timestamp
+        - name: COMMENT
+          dataType:
+            type: String
+      description: null
+      author: manlin.li@blackrock.com
+      createdAt: '2023-12-18 22:11:39'
+    - name: TABLES
+      schema:
+        providerType: snowflake
+        fields:
+        - name: TABLE_CATALOG
+          dataType:
+            type: String
+        - name: TABLE_SCHEMA
+          dataType:
+            type: String
+        - name: TABLE_NAME
+          dataType:
+            type: String
+        - name: TABLE_OWNER
+          dataType:
+            type: String
+        - name: TABLE_TYPE
+          dataType:
+            type: String
+        - name: IS_TRANSIENT
+          dataType:
+            type: String
+        - name: CLUSTERING_KEY
+          dataType:
+            type: String
+        - name: ROW_COUNT
+          dataType:
+            type: Number
+        - name: BYTES
+          dataType:
+            type: Number
+        - name: RETENTION_TIME
+          dataType:
+            type: Number
+        - name: SELF_REFERENCING_COLUMN_NAME
+          dataType:
+            type: String
+        - name: REFERENCE_GENERATION
+          dataType:
+            type: String
+        - name: USER_DEFINED_TYPE_CATALOG
+          dataType:
+            type: String
+        - name: USER_DEFINED_TYPE_SCHEMA
+          dataType:
+            type: String
+        - name: USER_DEFINED_TYPE_NAME
+          dataType:
+            type: String
+        - name: IS_INSERTABLE_INTO
+          dataType:
+            type: String
+        - name: IS_TYPED
+          dataType:
+            type: String
+        - name: COMMIT_ACTION
+          dataType:
+            type: String
+        - name: CREATED
+          dataType:
+            type: Timestamp
+        - name: LAST_ALTERED
+          dataType:
+            type: Timestamp
+        - name: LAST_DDL
+          dataType:
+            type: Timestamp
+        - name: LAST_DDL_BY
+          dataType:
+            type: String
+        - name: AUTO_CLUSTERING_ON
+          dataType:
+            type: String
+        - name: COMMENT
+          dataType:
+            type: String
+        - name: IS_TEMPORARY
+          dataType:
+            type: String
+      description: null
+      author: manlin.li@blackrock.com
+      createdAt: '2023-12-18 22:11:44'
+  .prophecy/metadata/sqlsources/BLACKROCK_PUBLIC:
+    name: BLACKROCK.PUBLIC
+    description: null
+    author: manlin.li@blackrock.com
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2023-12-13 21:13:33'
+    tables:
+    - name: STG_CUSTOMERS
+      schema:
+        providerType: snowflake
+        fields:
+        - name: CUSTOMER_ID
+          dataType:
+            type: Number
+        - name: FIRST_NAME
+          dataType:
+            type: String
+        - name: LAST_NAME
+          dataType:
+            type: String
+      description: null
+      author: manlin.li@blackrock.com
+      createdAt: '2023-12-13 21:13:33'
+    - name: CUSTOMERS
+      schema:
+        providerType: snowflake
+        fields:
+        - name: CUSTOMER_ID
+          dataType:
+            type: Number
+        - name: FIRST_NAME
+          dataType:
+            type: String
+        - name: LAST_NAME
+          dataType:
+            type: String
+        - name: FIRST_ORDER
+          dataType:
+            type: Date
+        - name: MOST_RECENT_ORDER
+          dataType:
+            type: Date
+        - name: TOTAL_ORDERS
+          dataType:
+            type: Number
+        - name: CUSTOMER_LIFETIME_VALUE
+          dataType:
+            type: Number
+      description: null
+      author: manlin.li@blackrock.com
+      createdAt: '2023-12-13 21:39:20'
+    - name: CUSTOMERORDERS
+      schema:
+        providerType: snowflake
+        fields:
+        - name: CUSTOMER_ID
+          dataType:
+            type: Number
+        - name: FIRST_NAME
+          dataType:
+            type: String
+        - name: LAST_NAME
+          dataType:
+            type: String
+        - name: REVENUE
+          dataType:
+            type: Number
+      description: null
+      author: manlin.li@blackrock.com
+      createdAt: '2023-12-18 21:49:16'
+    - name: RAW_CUSTOMER_AGE_TEST
+      schema:
+        providerType: snowflake
+        fields:
+        - name: ID
+          dataType:
+            type: Number
+        - name: AGE
+          dataType:
+            type: Number
+      description: null
+      author: manlin.li@blackrock.com
+      createdAt: '2024-01-04 21:33:41'
+    - name: RAW_CUSTOMERS
+      schema:
+        providerType: snowflake
+        fields:
+        - name: ID
+          dataType:
+            type: Number
+        - name: FIRST_NAME
+          dataType:
+            type: String
+        - name: LAST_NAME
+          dataType:
+            type: String
+      description: null
+      author: manlin.li@blackrock.com
+      createdAt: '2024-01-04 21:33:44'
+  .prophecy/metadata/sqlsources/test_dataset_create:
+    name: test_dataset_create
+    description: null
+    author: manlin.li@blackrock.com
+    files:
+    - models/test_dataset_create.yml
+    createdAt: '2024-01-04 20:51:53'
+    tables: []
 sqlUnreferencedSources: {}
 sqlPipeline:
   name: sqlPipeline
@@ -281,4 +679,6 @@ sqlPipeline:
   createdAt: '2022-12-09 05:43:56'
 dependencies: '[]'
 projectDependencies: {}
+flags:
+  shouldAddDefaultDependenciesIfAbsent: true
 pipelineConfigurations: {}

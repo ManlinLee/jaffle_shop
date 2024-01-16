@@ -1,0 +1,13 @@
+{
+  "Test_macro222" : {
+    "name" : "Test_macro222",
+    "macroType" : "expression",
+    "definition" : "",
+    "parameters" : {
+      "type" : "record",
+      "fields" : [ ]
+    },
+    "staleState" : "none",
+    "version" : 0
+  }
+}

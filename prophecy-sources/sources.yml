@@ -1,3 +1,200 @@
 ---
 version: 2
-sources: []
+sources:
+- name: "BLACKROCK.INFORMATION_SCHEMA"
+  database: "BLACKROCK"
+  schema: "INFORMATION_SCHEMA"
+  config:
+    enabled: true
+  tables:
+  - name: "SCHEMATA"
+    columns:
+    - name: "CATALOG_NAME"
+      dataType:
+        type: "String"
+    - name: "SCHEMA_NAME"
+      dataType:
+        type: "String"
+    - name: "SCHEMA_OWNER"
+      dataType:
+        type: "String"
+    - name: "IS_TRANSIENT"
+      dataType:
+        type: "String"
+    - name: "IS_MANAGED_ACCESS"
+      dataType:
+        type: "String"
+    - name: "RETENTION_TIME"
+      dataType:
+        type: "Number"
+    - name: "DEFAULT_CHARACTER_SET_CATALOG"
+      dataType:
+        type: "String"
+    - name: "DEFAULT_CHARACTER_SET_SCHEMA"
+      dataType:
+        type: "String"
+    - name: "DEFAULT_CHARACTER_SET_NAME"
+      dataType:
+        type: "String"
+    - name: "SQL_PATH"
+      dataType:
+        type: "String"
+    - name: "CREATED"
+      dataType:
+        type: "Timestamp"
+    - name: "LAST_ALTERED"
+      dataType:
+        type: "Timestamp"
+    - name: "COMMENT"
+      dataType:
+        type: "String"
+  - name: "TABLES"
+    columns:
+    - name: "TABLE_CATALOG"
+      dataType:
+        type: "String"
+    - name: "TABLE_SCHEMA"
+      dataType:
+        type: "String"
+    - name: "TABLE_NAME"
+      dataType:
+        type: "String"
+    - name: "TABLE_OWNER"
+      dataType:
+        type: "String"
+    - name: "TABLE_TYPE"
+      dataType:
+        type: "String"
+    - name: "IS_TRANSIENT"
+      dataType:
+        type: "String"
+    - name: "CLUSTERING_KEY"
+      dataType:
+        type: "String"
+    - name: "ROW_COUNT"
+      dataType:
+        type: "Number"
+    - name: "BYTES"
+      dataType:
+        type: "Number"
+    - name: "RETENTION_TIME"
+      dataType:
+        type: "Number"
+    - name: "SELF_REFERENCING_COLUMN_NAME"
+      dataType:
+        type: "String"
+    - name: "REFERENCE_GENERATION"
+      dataType:
+        type: "String"
+    - name: "USER_DEFINED_TYPE_CATALOG"
+      dataType:
+        type: "String"
+    - name: "USER_DEFINED_TYPE_SCHEMA"
+      dataType:
+        type: "String"
+    - name: "USER_DEFINED_TYPE_NAME"
+      dataType:
+        type: "String"
+    - name: "IS_INSERTABLE_INTO"
+      dataType:
+        type: "String"
+    - name: "IS_TYPED"
+      dataType:
+        type: "String"
+    - name: "COMMIT_ACTION"
+      dataType:
+        type: "String"
+    - name: "CREATED"
+      dataType:
+        type: "Timestamp"
+    - name: "LAST_ALTERED"
+      dataType:
+        type: "Timestamp"
+    - name: "LAST_DDL"
+      dataType:
+        type: "Timestamp"
+    - name: "LAST_DDL_BY"
+      dataType:
+        type: "String"
+    - name: "AUTO_CLUSTERING_ON"
+      dataType:
+        type: "String"
+    - name: "COMMENT"
+      dataType:
+        type: "String"
+    - name: "IS_TEMPORARY"
+      dataType:
+        type: "String"
+- name: "BLACKROCK.PUBLIC"
+  database: "BLACKROCK"
+  schema: "PUBLIC"
+  config:
+    enabled: true
+  tables:
+  - name: "STG_CUSTOMERS"
+    columns:
+    - name: "CUSTOMER_ID"
+      dataType:
+        type: "Number"
+    - name: "FIRST_NAME"
+      dataType:
+        type: "String"
+    - name: "LAST_NAME"
+      dataType:
+        type: "String"
+  - name: "CUSTOMERS"
+    columns:
+    - name: "CUSTOMER_ID"
+      dataType:
+        type: "Number"
+    - name: "FIRST_NAME"
+      dataType:
+        type: "String"
+    - name: "LAST_NAME"
+      dataType:
+        type: "String"
+    - name: "FIRST_ORDER"
+      dataType:
+        type: "Date"
+    - name: "MOST_RECENT_ORDER"
+      dataType:
+        type: "Date"
+    - name: "TOTAL_ORDERS"
+      dataType:
+        type: "Number"
+    - name: "CUSTOMER_LIFETIME_VALUE"
+      dataType:
+        type: "Number"
+  - name: "CUSTOMERORDERS"
+    columns:
+    - name: "CUSTOMER_ID"
+      dataType:
+        type: "Number"
+    - name: "FIRST_NAME"
+      dataType:
+        type: "String"
+    - name: "LAST_NAME"
+      dataType:
+        type: "String"
+    - name: "REVENUE"
+      dataType:
+        type: "Number"
+  - name: "RAW_CUSTOMER_AGE_TEST"
+    columns:
+    - name: "ID"
+      dataType:
+        type: "Number"
+    - name: "AGE"
+      dataType:
+        type: "Number"
+  - name: "RAW_CUSTOMERS"
+    columns:
+    - name: "ID"
+      dataType:
+        type: "Number"
+    - name: "FIRST_NAME"
+      dataType:
+        type: "String"
+    - name: "LAST_NAME"
+      dataType:
+        type: "String"

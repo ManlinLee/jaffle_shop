@@ -1,0 +1,286 @@
+{
+  "id" : "Transformation_DeriveCol",
+  "metainfo" : {
+    "label" : "Transformation_DeriveCol",
+    "autoLayout" : false,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "V_F0Tkl-wmf1t6Q23-CTU" : {
+      "id" : "V_F0Tkl-wmf1t6Q23-CTU",
+      "component" : "Seed",
+      "metadata" : {
+        "label" : "test_raw_ICAP_USD_Basis_Swaps_20240108",
+        "slug" : "test_raw_ICAP_USD_Basis_Swaps_20240108",
+        "x" : -620,
+        "y" : -220,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "test_raw_ICAP_USD_Basis_Swaps_20240108",
+          "sourceType" : "Seed",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "qLvPeoxmeMW-sA69b6w3q",
+          "schema" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "RIC",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "DATE",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "TIME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "TENOR",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "VALUE",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "Transformation_DeriveCol##MoDpdcIU" : {
+      "id" : "Transformation_DeriveCol##MoDpdcIU",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "Transformation_DeriveCol",
+        "x" : -60,
+        "y" : -200,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM Reformat_1\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "EvT7z6QV",
+          "schema" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "RIC",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "TIME",
+              "dataType" : {
+                "type" : "Time"
+              }
+            }, {
+              "name" : "TENOR",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "Reformat_1"
+        } ],
+        "outputs" : [ {
+          "id" : "yqYhIEF9",
+          "schema" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "RIC",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "TIME",
+              "dataType" : {
+                "type" : "Time"
+              }
+            }, {
+              "name" : "TENOR",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "yutFthY9slA6XZR-B-P8H$$dObseFwkTBcIQo7rzXsO0" : {
+      "id" : "yutFthY9slA6XZR-B-P8H$$dObseFwkTBcIQo7rzXsO0",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_1",
+        "slug" : "Reformat_1",
+        "x" : -360,
+        "y" : -200,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "columnsSelector" : [ "uHlAdfXKAeuJwdRei4IWs$$qRGUgoK4As_WtXuXJrbOk##RIC", "uHlAdfXKAeuJwdRei4IWs$$qRGUgoK4As_WtXuXJrbOk##DATE", "uHlAdfXKAeuJwdRei4IWs$$qRGUgoK4As_WtXuXJrbOk##TIME", "uHlAdfXKAeuJwdRei4IWs$$qRGUgoK4As_WtXuXJrbOk##TENOR" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "RIC"
+          },
+          "alias" : "RIC"
+        }, {
+          "expression" : {
+            "expression" : "ROW_NUMBER() OVER (ORDER BY RIC, DATE, TIME)"
+          },
+          "alias" : "ID"
+        }, {
+          "expression" : {
+            "expression" : "TO_DATE(DATE)"
+          },
+          "alias" : "DATE"
+        }, {
+          "expression" : {
+            "expression" : "TO_TIME(TIME)"
+          },
+          "alias" : "TIME"
+        }, {
+          "expression" : {
+            "expression" : "TENOR"
+          },
+          "alias" : "TENOR"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "uHlAdfXKAeuJwdRei4IWs$$qRGUgoK4As_WtXuXJrbOk",
+          "schema" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "RIC",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "DATE",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "TIME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "TENOR",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "VALUE",
+              "dataType" : {
+                "type" : "Float"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "jBUE4seXm2YyhghpgAUSd$$P7I0ybOzhtlcgfaqCfgEY",
+          "schema" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "RIC",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ID",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "TIME",
+              "dataType" : {
+                "type" : "Time"
+              }
+            }, {
+              "name" : "TENOR",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "DLW2ioQqLhZ8S99srD_Xc",
+    "source" : "V_F0Tkl-wmf1t6Q23-CTU",
+    "sourcePort" : "qLvPeoxmeMW-sA69b6w3q",
+    "target" : "yutFthY9slA6XZR-B-P8H$$dObseFwkTBcIQo7rzXsO0",
+    "targetPort" : "uHlAdfXKAeuJwdRei4IWs$$qRGUgoK4As_WtXuXJrbOk"
+  }, {
+    "id" : "kB6FhKNKLMgFoXdND0gcg",
+    "source" : "yutFthY9slA6XZR-B-P8H$$dObseFwkTBcIQo7rzXsO0",
+    "sourcePort" : "jBUE4seXm2YyhghpgAUSd$$P7I0ybOzhtlcgfaqCfgEY",
+    "target" : "Transformation_DeriveCol##MoDpdcIU",
+    "targetPort" : "EvT7z6QV"
+  } ],
+  "component" : "Model"
+}

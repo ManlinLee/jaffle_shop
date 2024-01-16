@@ -1,4 +1,28 @@
-WITH orders AS (
+WITH STG_CUSTOMERS AS (
+
+  SELECT * 
+  
+  FROM {{ source('BLACKROCK.PUBLIC', 'STG_CUSTOMERS') }}
+
+),
+
+customers AS (
+
+  SELECT * 
+  
+  FROM STG_CUSTOMERS AS stg_customers
+
+),
+
+CUSTOMERS AS (
+
+  SELECT * 
+  
+  FROM customers AS CUSTOMERS
+
+),
+
+orders AS (
 
   SELECT * 
   
@@ -49,14 +73,6 @@ customer_orders AS (
   FROM orders
   
   GROUP BY customer_id
-
-),
-
-customers AS (
-
-  SELECT * 
-  
-  FROM {{ ref('stg_customers')}}
 
 ),
 

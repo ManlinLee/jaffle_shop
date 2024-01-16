@@ -5,102 +5,490 @@
     "autoLayout" : false,
     "staleState" : "none",
     "sourceSuggestions" : {
-      "sources" : [ ]
+      "sources" : [ {
+        "source" : {
+          "table" : {
+            "name" : "CustomerOrders",
+            "sourceType" : "Model"
+          }
+        },
+        "sourceComponentKind" : "Model",
+        "sourceLabel" : "CustomerOrders_1",
+        "canJoinWith" : [ {
+          "processLabel" : "customers_1",
+          "processId" : "-C3wvZWvDbvrHQnrdwPlE",
+          "properties" : {
+            "activeTab" : "conditions",
+            "columnsSelector" : [ "CUSTOMER_ID", "FIRST_NAME", "LAST_NAME" ],
+            "conditions" : [ {
+              "alias" : "CustomerOrders_1",
+              "expression" : {
+                "expression" : "customers_1.CUSTOMER_ID = CustomerOrders_1.CUSTOMER_ID AND customers_1.FIRST_NAME = CustomerOrders_1.FIRST_NAME AND customers_1.LAST_NAME = CustomerOrders_1.LAST_NAME"
+              },
+              "joinType" : "inner"
+            } ],
+            "expressions" : [ {
+              "expression" : {
+                "expression" : "CustomerOrders_1.REVENUE"
+              },
+              "alias" : "REVENUE"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.TOTAL_ORDERS"
+              },
+              "alias" : "TOTAL_ORDERS"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.LAST_NAME"
+              },
+              "alias" : "LAST_NAME"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.MOST_RECENT_ORDER"
+              },
+              "alias" : "MOST_RECENT_ORDER"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.FIRST_NAME"
+              },
+              "alias" : "FIRST_NAME"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.FIRST_ORDER"
+              },
+              "alias" : "FIRST_ORDER"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.CUSTOMER_LIFETIME_VALUE"
+              },
+              "alias" : "CUSTOMER_LIFETIME_VALUE"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.CUSTOMER_ID"
+              },
+              "alias" : "CUSTOMER_ID"
+            } ],
+            "headAlias" : "CustomerOrders_1"
+          },
+          "joinColumns" : [ "CUSTOMER_ID", "FIRST_NAME", "LAST_NAME" ],
+          "isRecommended" : false
+        } ]
+      }, {
+        "source" : {
+          "table" : {
+            "name" : "orders",
+            "sourceType" : "Model"
+          }
+        },
+        "sourceComponentKind" : "Model",
+        "sourceLabel" : "orders_1",
+        "canJoinWith" : [ {
+          "processLabel" : "customers_1",
+          "processId" : "-C3wvZWvDbvrHQnrdwPlE",
+          "properties" : {
+            "activeTab" : "conditions",
+            "columnsSelector" : [ "CUSTOMER_ID" ],
+            "conditions" : [ {
+              "alias" : "orders_1",
+              "expression" : {
+                "expression" : "customers_1.CUSTOMER_ID = orders_1.CUSTOMER_ID"
+              },
+              "joinType" : "inner"
+            } ],
+            "expressions" : [ {
+              "expression" : {
+                "expression" : "orders_1.ORDER_ID"
+              },
+              "alias" : "ORDER_ID"
+            }, {
+              "expression" : {
+                "expression" : "orders_1.ORDER_DATE"
+              },
+              "alias" : "ORDER_DATE"
+            }, {
+              "expression" : {
+                "expression" : "orders_1.STATUS"
+              },
+              "alias" : "STATUS"
+            }, {
+              "expression" : {
+                "expression" : "orders_1.CREDIT_CARD_AMOUNT"
+              },
+              "alias" : "CREDIT_CARD_AMOUNT"
+            }, {
+              "expression" : {
+                "expression" : "orders_1.COUPON_AMOUNT"
+              },
+              "alias" : "COUPON_AMOUNT"
+            }, {
+              "expression" : {
+                "expression" : "orders_1.BANK_TRANSFER_AMOUNT"
+              },
+              "alias" : "BANK_TRANSFER_AMOUNT"
+            }, {
+              "expression" : {
+                "expression" : "orders_1.GIFT_CARD_AMOUNT"
+              },
+              "alias" : "GIFT_CARD_AMOUNT"
+            }, {
+              "expression" : {
+                "expression" : "orders_1.AMOUNT"
+              },
+              "alias" : "AMOUNT"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.TOTAL_ORDERS"
+              },
+              "alias" : "TOTAL_ORDERS"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.LAST_NAME"
+              },
+              "alias" : "LAST_NAME"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.MOST_RECENT_ORDER"
+              },
+              "alias" : "MOST_RECENT_ORDER"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.FIRST_NAME"
+              },
+              "alias" : "FIRST_NAME"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.FIRST_ORDER"
+              },
+              "alias" : "FIRST_ORDER"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.CUSTOMER_LIFETIME_VALUE"
+              },
+              "alias" : "CUSTOMER_LIFETIME_VALUE"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.CUSTOMER_ID"
+              },
+              "alias" : "CUSTOMER_ID"
+            } ],
+            "headAlias" : "orders_1"
+          },
+          "joinColumns" : [ "CUSTOMER_ID" ],
+          "isRecommended" : false
+        } ]
+      }, {
+        "source" : {
+          "table" : {
+            "name" : "raw_customers",
+            "sourceType" : "Seed"
+          }
+        },
+        "sourceComponentKind" : "Seed",
+        "sourceLabel" : "raw_customers",
+        "canJoinWith" : [ {
+          "processLabel" : "customers_1",
+          "processId" : "-C3wvZWvDbvrHQnrdwPlE",
+          "properties" : {
+            "activeTab" : "conditions",
+            "columnsSelector" : [ "FIRST_NAME", "LAST_NAME" ],
+            "conditions" : [ {
+              "alias" : "raw_customers",
+              "expression" : {
+                "expression" : "customers_1.FIRST_NAME = raw_customers.FIRST_NAME AND customers_1.LAST_NAME = raw_customers.LAST_NAME"
+              },
+              "joinType" : "inner"
+            } ],
+            "expressions" : [ {
+              "expression" : {
+                "expression" : "raw_customers.id"
+              },
+              "alias" : "id"
+            }, {
+              "expression" : {
+                "expression" : "raw_customers.first_name"
+              },
+              "alias" : "first_name"
+            }, {
+              "expression" : {
+                "expression" : "raw_customers.last_name"
+              },
+              "alias" : "last_name"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.TOTAL_ORDERS"
+              },
+              "alias" : "TOTAL_ORDERS"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.LAST_NAME"
+              },
+              "alias" : "LAST_NAME"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.MOST_RECENT_ORDER"
+              },
+              "alias" : "MOST_RECENT_ORDER"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.FIRST_NAME"
+              },
+              "alias" : "FIRST_NAME"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.FIRST_ORDER"
+              },
+              "alias" : "FIRST_ORDER"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.CUSTOMER_LIFETIME_VALUE"
+              },
+              "alias" : "CUSTOMER_LIFETIME_VALUE"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.CUSTOMER_ID"
+              },
+              "alias" : "CUSTOMER_ID"
+            } ],
+            "headAlias" : "raw_customers"
+          },
+          "joinColumns" : [ "FIRST_NAME", "LAST_NAME" ],
+          "isRecommended" : false
+        } ]
+      }, {
+        "source" : {
+          "table" : {
+            "name" : "stg_customers",
+            "sourceType" : "Model"
+          }
+        },
+        "sourceComponentKind" : "Model",
+        "sourceLabel" : "stg_customers",
+        "canJoinWith" : [ {
+          "processLabel" : "customers_1",
+          "processId" : "-C3wvZWvDbvrHQnrdwPlE",
+          "properties" : {
+            "activeTab" : "conditions",
+            "columnsSelector" : [ "CUSTOMER_ID", "FIRST_NAME", "LAST_NAME" ],
+            "conditions" : [ {
+              "alias" : "stg_customers",
+              "expression" : {
+                "expression" : "customers_1.CUSTOMER_ID = stg_customers.CUSTOMER_ID AND customers_1.FIRST_NAME = stg_customers.FIRST_NAME AND customers_1.LAST_NAME = stg_customers.LAST_NAME"
+              },
+              "joinType" : "inner"
+            } ],
+            "expressions" : [ {
+              "expression" : {
+                "expression" : "customers_1.TOTAL_ORDERS"
+              },
+              "alias" : "TOTAL_ORDERS"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.LAST_NAME"
+              },
+              "alias" : "LAST_NAME"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.MOST_RECENT_ORDER"
+              },
+              "alias" : "MOST_RECENT_ORDER"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.FIRST_NAME"
+              },
+              "alias" : "FIRST_NAME"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.FIRST_ORDER"
+              },
+              "alias" : "FIRST_ORDER"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.CUSTOMER_LIFETIME_VALUE"
+              },
+              "alias" : "CUSTOMER_LIFETIME_VALUE"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.CUSTOMER_ID"
+              },
+              "alias" : "CUSTOMER_ID"
+            } ],
+            "headAlias" : "stg_customers"
+          },
+          "joinColumns" : [ "CUSTOMER_ID", "FIRST_NAME", "LAST_NAME" ],
+          "isRecommended" : false
+        } ]
+      }, {
+        "source" : {
+          "table" : {
+            "name" : "stg_orders",
+            "sourceType" : "Model"
+          }
+        },
+        "sourceComponentKind" : "Model",
+        "sourceLabel" : "stg_orders",
+        "canJoinWith" : [ {
+          "processLabel" : "customers_1",
+          "processId" : "-C3wvZWvDbvrHQnrdwPlE",
+          "properties" : {
+            "activeTab" : "conditions",
+            "columnsSelector" : [ "CUSTOMER_ID" ],
+            "conditions" : [ {
+              "alias" : "stg_orders",
+              "expression" : {
+                "expression" : "customers_1.CUSTOMER_ID = stg_orders.CUSTOMER_ID"
+              },
+              "joinType" : "inner"
+            } ],
+            "expressions" : [ {
+              "expression" : {
+                "expression" : "stg_orders.ORDER_ID"
+              },
+              "alias" : "ORDER_ID"
+            }, {
+              "expression" : {
+                "expression" : "stg_orders.ORDER_DATE"
+              },
+              "alias" : "ORDER_DATE"
+            }, {
+              "expression" : {
+                "expression" : "stg_orders.STATUS"
+              },
+              "alias" : "STATUS"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.TOTAL_ORDERS"
+              },
+              "alias" : "TOTAL_ORDERS"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.LAST_NAME"
+              },
+              "alias" : "LAST_NAME"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.MOST_RECENT_ORDER"
+              },
+              "alias" : "MOST_RECENT_ORDER"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.FIRST_NAME"
+              },
+              "alias" : "FIRST_NAME"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.FIRST_ORDER"
+              },
+              "alias" : "FIRST_ORDER"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.CUSTOMER_LIFETIME_VALUE"
+              },
+              "alias" : "CUSTOMER_LIFETIME_VALUE"
+            }, {
+              "expression" : {
+                "expression" : "customers_1.CUSTOMER_ID"
+              },
+              "alias" : "CUSTOMER_ID"
+            } ],
+            "headAlias" : "stg_orders"
+          },
+          "joinColumns" : [ "CUSTOMER_ID" ],
+          "isRecommended" : false
+        } ]
+      } ]
     },
     "graphConfig" : {
       "userDefinedConfig" : {
         "vars" : { }
       }
-    }
+    },
+    "version" : 3
   },
   "processes" : {
-    "CustomerOrders##l6xL6oS3" : {
-      "id" : "CustomerOrders##l6xL6oS3",
-      "component" : "TargetModel",
+    "top_5##grW337as" : {
+      "id" : "top_5##grW337as",
+      "component" : "Limit",
       "metadata" : {
-        "label" : "CustomerOrders",
-        "x" : 1120,
-        "y" : 220,
-        "phase" : 0,
-        "macroDependencies" : [ ]
+        "label" : "top_5",
+        "x" : 820,
+        "y" : 120,
+        "phase" : 0
       },
       "properties" : {
-        "customQueryDisabled" : true,
-        "customQuery" : false,
-        "incrementalEditorDisabled" : true,
-        "query" : "SELECT * \n\nFROM top_5\n",
-        "incrementalKey" : false,
-        "incremental" : {
-          "expression" : "true"
-        }
+        "limit" : {
+          "expression" : "5"
+        },
+        "fetchEnabled" : false,
+        "fetchType" : "First"
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "vfwRr1hn",
+          "id" : "H8T0QfI0",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "customer_id",
+              "name" : "CUSTOMER_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "first_name",
+              "name" : "FIRST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "last_name",
+              "name" : "LAST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "revenue",
+              "name" : "REVENUE",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             } ]
           },
-          "slug" : "top_5"
+          "slug" : "revenue_desc"
         } ],
         "outputs" : [ {
-          "id" : "WJYioo9R",
+          "id" : "ib3b8cJR",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "customer_id",
+              "name" : "CUSTOMER_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "first_name",
+              "name" : "FIRST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "last_name",
+              "name" : "LAST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "revenue",
+              "name" : "REVENUE",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             } ]
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "revenue_by_customer##fnwFzn8c" : {
-      "id" : "revenue_by_customer##fnwFzn8c",
+    "revenue_by_customer##Pjc8hvaj" : {
+      "id" : "revenue_by_customer##Pjc8hvaj",
       "component" : "Aggregate",
       "metadata" : {
         "label" : "revenue_by_customer",
-        "x" : 520,
-        "y" : 220,
+        "x" : 420,
+        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -145,154 +533,146 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "ep1dlzut",
+          "id" : "yu12ap6K",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "customer_id",
+              "name" : "CUSTOMER_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "first_name",
+              "name" : "FIRST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "last_name",
+              "name" : "LAST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "amount",
+              "name" : "AMOUNT",
               "dataType" : {
-                "type" : "Float"
+                "type" : "Number"
               }
             }, {
-              "name" : "full_name",
+              "name" : "FULL_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "account_length_day",
+              "name" : "ACCOUNT_LENGTH_DAY",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Number"
               }
             } ]
           },
           "slug" : "customer_order_amount"
         } ],
         "outputs" : [ {
-          "id" : "GlmBF002",
+          "id" : "kFxKjeZd",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "customer_id",
+              "name" : "CUSTOMER_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "first_name",
+              "name" : "FIRST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "last_name",
+              "name" : "LAST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "revenue",
+              "name" : "REVENUE",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             } ]
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "orders##kXAVwWFM" : {
-      "id" : "orders##kXAVwWFM",
+    "customers##OlfqFNPo" : {
+      "id" : "customers##OlfqFNPo",
       "component" : "Model",
       "metadata" : {
-        "label" : "orders",
-        "x" : 120,
-        "y" : 320,
+        "label" : "customers",
+        "x" : 20,
+        "y" : 20,
         "phase" : 0
       },
       "properties" : {
         "table" : {
-          "name" : "orders",
+          "name" : "customers",
           "sourceType" : "Model"
         }
       },
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "uzUJ35VF",
+          "id" : "LghZMlUt",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "order_id",
+              "name" : "CUSTOMER_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_date",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "status",
+              "name" : "FIRST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "credit_card_amount",
+              "name" : "LAST_NAME",
               "dataType" : {
-                "type" : "Double"
+                "type" : "String"
               }
             }, {
-              "name" : "coupon_amount",
+              "name" : "FIRST_ORDER",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Date"
               }
             }, {
-              "name" : "bank_transfer_amount",
+              "name" : "MOST_RECENT_ORDER",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Date"
               }
             }, {
-              "name" : "gift_card_amount",
+              "name" : "TOTAL_ORDERS",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             }, {
-              "name" : "amount",
+              "name" : "CUSTOMER_LIFETIME_VALUE",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             } ]
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "customer_order_amount##fayLvz7p" : {
-      "id" : "customer_order_amount##fayLvz7p",
+    "customer_order_amount##WvlFBVJa" : {
+      "id" : "customer_order_amount##WvlFBVJa",
       "component" : "Join",
       "metadata" : {
         "label" : "customer_order_amount",
-        "x" : 320,
-        "y" : 220,
+        "x" : 220,
+        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -330,295 +710,314 @@
           "alias" : "full_name"
         }, {
           "expression" : {
-            "expression" : "DATEDIFF(day, first_order, CURRENT_DATE)"
+            "expression" : "DATEDIFF(DAY, first_order, CURRENT_DATE)"
           },
           "alias" : "account_length_day"
         } ],
-        "activeTab" : "expressions",
-        "columnsSelector" : [ "QwzwfTrI##customer_id", "ndCaEUSh##customer_id", "QwzwfTrI##customer_id", "QwzwfTrI##first_name", "QwzwfTrI##last_name", "ndCaEUSh##amount" ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ ],
         "headAlias" : "customers"
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "QwzwfTrI",
+          "id" : "erE1Q3WY",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "customer_id",
+              "name" : "CUSTOMER_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "first_name",
+              "name" : "FIRST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "last_name",
+              "name" : "LAST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "first_order",
+              "name" : "FIRST_ORDER",
               "dataType" : {
                 "type" : "Date"
               }
             }, {
-              "name" : "most_recent_order",
+              "name" : "MOST_RECENT_ORDER",
               "dataType" : {
                 "type" : "Date"
               }
             }, {
-              "name" : "total_orders",
+              "name" : "TOTAL_ORDERS",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Number"
               }
             }, {
-              "name" : "customer_lifetime_value",
+              "name" : "CUSTOMER_LIFETIME_VALUE",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             } ]
           },
           "slug" : "customers"
         }, {
-          "id" : "ndCaEUSh",
+          "id" : "xbOf7Yo7",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "order_id",
+              "name" : "ORDER_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "customer_id",
+              "name" : "CUSTOMER_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "order_date",
+              "name" : "ORDER_DATE",
               "dataType" : {
                 "type" : "Date"
               }
             }, {
-              "name" : "status",
+              "name" : "STATUS",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "credit_card_amount",
+              "name" : "CREDIT_CARD_AMOUNT",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             }, {
-              "name" : "coupon_amount",
+              "name" : "COUPON_AMOUNT",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             }, {
-              "name" : "bank_transfer_amount",
+              "name" : "BANK_TRANSFER_AMOUNT",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             }, {
-              "name" : "gift_card_amount",
+              "name" : "GIFT_CARD_AMOUNT",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             }, {
-              "name" : "amount",
+              "name" : "AMOUNT",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             } ]
           },
           "slug" : "orders"
         } ],
         "outputs" : [ {
-          "id" : "YnOAjfcd",
+          "id" : "b1sFtIb5",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "customer_id",
+              "name" : "CUSTOMER_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "first_name",
+              "name" : "FIRST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "last_name",
+              "name" : "LAST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "amount",
+              "name" : "AMOUNT",
               "dataType" : {
-                "type" : "Float"
+                "type" : "Number"
               }
             }, {
-              "name" : "full_name",
+              "name" : "FULL_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "account_length_day",
+              "name" : "ACCOUNT_LENGTH_DAY",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Number"
               }
             } ]
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "top_5##Fmql55Wv" : {
-      "id" : "top_5##Fmql55Wv",
-      "component" : "Limit",
+    "orders##Zx87cQ9A" : {
+      "id" : "orders##Zx87cQ9A",
+      "component" : "Model",
       "metadata" : {
-        "label" : "top_5",
-        "x" : 920,
+        "label" : "orders",
+        "x" : 20,
         "y" : 220,
         "phase" : 0
       },
       "properties" : {
-        "limit" : {
-          "expression" : "5"
-        }
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "QBSXjJBf",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "first_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "revenue",
-              "dataType" : {
-                "type" : "Double"
-              }
-            } ]
-          },
-          "slug" : "revenue_desc"
-        } ],
-        "outputs" : [ {
-          "id" : "fLUvY1fH",
-          "schema" : {
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "first_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "revenue",
-              "dataType" : {
-                "type" : "Double"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false
-      }
-    },
-    "customers##loPELNAU" : {
-      "id" : "customers##loPELNAU",
-      "component" : "Model",
-      "metadata" : {
-        "label" : "customers",
-        "x" : 120,
-        "y" : 120,
-        "phase" : 0
-      },
-      "properties" : {
         "table" : {
-          "name" : "customers",
+          "name" : "orders",
           "sourceType" : "Model"
         }
       },
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "Qxj1GGVt",
+          "id" : "nsWs5cWO",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "customer_id",
+              "name" : "ORDER_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "first_name",
+              "name" : "CUSTOMER_ID",
               "dataType" : {
-                "type" : "String"
+                "type" : "Number"
               }
             }, {
-              "name" : "last_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "first_order",
+              "name" : "ORDER_DATE",
               "dataType" : {
                 "type" : "Date"
               }
             }, {
-              "name" : "most_recent_order",
+              "name" : "STATUS",
               "dataType" : {
-                "type" : "Date"
+                "type" : "String"
               }
             }, {
-              "name" : "total_orders",
+              "name" : "CREDIT_CARD_AMOUNT",
               "dataType" : {
-                "type" : "Bigint"
+                "type" : "Number"
               }
             }, {
-              "name" : "customer_lifetime_value",
+              "name" : "COUPON_AMOUNT",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
+              }
+            }, {
+              "name" : "BANK_TRANSFER_AMOUNT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "GIFT_CARD_AMOUNT",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "AMOUNT",
+              "dataType" : {
+                "type" : "Number"
               }
             } ]
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "revenue_desc##ibHxXLRN" : {
-      "id" : "revenue_desc##ibHxXLRN",
+    "CustomerOrders##hO72fjlx" : {
+      "id" : "CustomerOrders##hO72fjlx",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "CustomerOrders",
+        "x" : 1020,
+        "y" : 120,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM top_5\n",
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "wDGx5jZW",
+          "schema" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "CUSTOMER_ID",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "FIRST_NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "LAST_NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "REVENUE",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
+          "slug" : "top_5"
+        } ],
+        "outputs" : [ {
+          "id" : "coJcQ52N",
+          "schema" : {
+            "providerType" : "Snowflake",
+            "fields" : [ {
+              "name" : "CUSTOMER_ID",
+              "dataType" : {
+                "type" : "Number"
+              }
+            }, {
+              "name" : "FIRST_NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "LAST_NAME",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "REVENUE",
+              "dataType" : {
+                "type" : "Number"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "revenue_desc##OJIRZwAB" : {
+      "id" : "revenue_desc##OJIRZwAB",
       "component" : "OrderBy",
       "metadata" : {
         "label" : "revenue_desc",
-        "x" : 720,
-        "y" : 220,
+        "x" : 620,
+        "y" : 120,
         "phase" : 0,
         "macroDependencies" : [ ]
       },
@@ -634,101 +1033,102 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "Srfc12MN",
+          "id" : "Ynx0QzJ3",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "customer_id",
+              "name" : "CUSTOMER_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "first_name",
+              "name" : "FIRST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "last_name",
+              "name" : "LAST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "revenue",
+              "name" : "REVENUE",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             } ]
           },
           "slug" : "revenue_by_customer"
         } ],
         "outputs" : [ {
-          "id" : "uR20ss9P",
+          "id" : "VezNBrTw",
           "schema" : {
-            "providerType" : "Databricks",
+            "providerType" : "Snowflake",
             "fields" : [ {
-              "name" : "customer_id",
+              "name" : "CUSTOMER_ID",
               "dataType" : {
-                "type" : "Integer"
+                "type" : "Number"
               }
             }, {
-              "name" : "first_name",
+              "name" : "FIRST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "last_name",
+              "name" : "LAST_NAME",
               "dataType" : {
                 "type" : "String"
               }
             }, {
-              "name" : "revenue",
+              "name" : "REVENUE",
               "dataType" : {
-                "type" : "Double"
+                "type" : "Number"
               }
             } ]
           },
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     }
   },
   "connections" : [ {
-    "id" : "x3SQMY7s",
-    "source" : "customers##loPELNAU",
-    "sourcePort" : "Qxj1GGVt",
-    "target" : "customer_order_amount##fayLvz7p",
-    "targetPort" : "QwzwfTrI"
+    "id" : "TMmatAb4",
+    "source" : "customers##OlfqFNPo",
+    "sourcePort" : "LghZMlUt",
+    "target" : "customer_order_amount##WvlFBVJa",
+    "targetPort" : "erE1Q3WY"
   }, {
-    "id" : "PLQUXyU9",
-    "source" : "orders##kXAVwWFM",
-    "sourcePort" : "uzUJ35VF",
-    "target" : "customer_order_amount##fayLvz7p",
-    "targetPort" : "ndCaEUSh"
+    "id" : "f9cSbKyn",
+    "source" : "orders##Zx87cQ9A",
+    "sourcePort" : "nsWs5cWO",
+    "target" : "customer_order_amount##WvlFBVJa",
+    "targetPort" : "xbOf7Yo7"
   }, {
-    "id" : "ZtrjnWgA",
-    "source" : "customer_order_amount##fayLvz7p",
-    "sourcePort" : "YnOAjfcd",
-    "target" : "revenue_by_customer##fnwFzn8c",
-    "targetPort" : "ep1dlzut"
+    "id" : "hydTTZD7",
+    "source" : "customer_order_amount##WvlFBVJa",
+    "sourcePort" : "b1sFtIb5",
+    "target" : "revenue_by_customer##Pjc8hvaj",
+    "targetPort" : "yu12ap6K"
   }, {
-    "id" : "WFrMdnW3",
-    "source" : "revenue_by_customer##fnwFzn8c",
-    "sourcePort" : "GlmBF002",
-    "target" : "revenue_desc##ibHxXLRN",
-    "targetPort" : "Srfc12MN"
+    "id" : "DzoQdp4d",
+    "source" : "revenue_by_customer##Pjc8hvaj",
+    "sourcePort" : "kFxKjeZd",
+    "target" : "revenue_desc##OJIRZwAB",
+    "targetPort" : "Ynx0QzJ3"
   }, {
-    "id" : "JUIIT83E",
-    "source" : "revenue_desc##ibHxXLRN",
-    "sourcePort" : "uR20ss9P",
-    "target" : "top_5##Fmql55Wv",
-    "targetPort" : "QBSXjJBf"
+    "id" : "tsgTf8Nn",
+    "source" : "revenue_desc##OJIRZwAB",
+    "sourcePort" : "VezNBrTw",
+    "target" : "top_5##grW337as",
+    "targetPort" : "H8T0QfI0"
   }, {
-    "id" : "tAd93Jet",
-    "source" : "top_5##Fmql55Wv",
-    "sourcePort" : "fLUvY1fH",
-    "target" : "CustomerOrders##l6xL6oS3",
-    "targetPort" : "vfwRr1hn"
+    "id" : "QSWHhIcI",
+    "source" : "top_5##grW337as",
+    "sourcePort" : "ib3b8cJR",
+    "target" : "CustomerOrders##hO72fjlx",
+    "targetPort" : "wDGx5jZW"
   } ],
   "component" : "Model"
 }
